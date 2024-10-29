@@ -652,6 +652,32 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	width: 100%
 }
 
+.btn-group-large {
+    display: block !important; /* Default tampil */
+}
+
+.btn-group-mobile {
+    display: none !important; /* Default sembunyi */
+}
+
+@media (max-width: 768px) {
+    .btn-group-large {
+        display: none !important; /* Sembunyi saat mobile */
+    }
+    .btn-group-mobile {
+        display: block !important; /* Tampil saat mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .btn-group-large {
+        display: block !important; /* Tampil saat besar */
+    }
+    .btn-group-mobile {
+        display: none !important; /* Sembunyi saat besar */
+    }
+}
+
 
 
 

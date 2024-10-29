@@ -336,7 +336,7 @@
                 iframe:true,
                 width:"430",
                 height:"405",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -348,7 +348,7 @@
                 iframe:true,
                 width:"400",
                 height:"205",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -360,7 +360,7 @@
                 iframe:true,
                 width:"500",
                 height:"305",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -372,7 +372,7 @@
                 iframe:true,
                 width:"600",
                 height:"605",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -384,7 +384,7 @@
                 iframe:true,
                 width:"450",
                 height:"340",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -396,7 +396,7 @@
                 iframe:true,
                 width:"430",
                 height:"450",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -408,7 +408,7 @@
                 iframe:true,
                 width:"600",
                 height:"500",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -421,7 +421,7 @@
                 iframe:true,
                 width:"400",
                 height:"200",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -433,7 +433,7 @@
                 iframe:true,
                 width:"400",
                 height:"200",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -445,7 +445,7 @@
                 iframe:true,
                 width:"400",
                 height:"205",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -457,7 +457,7 @@
                 iframe:true,
                 width:"500",
                 height:"305",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -469,7 +469,7 @@
                 iframe:true,
                 width:"600",
                 height:"605",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -481,7 +481,7 @@
                 iframe:true,
                 width:"450",
                 height:"340",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -493,7 +493,7 @@
                 iframe:true,
                 width:"500",
                 height:"305",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.href = site_url + '/login/pp';
                 },
@@ -508,7 +508,7 @@
                 iframe:true,
                 width:"400",
                 height:"300",
-                fixed:true,
+                fixed:false,
                 overlayClose: true
             });
         }
@@ -589,7 +589,7 @@
                 iframe:true,
                 width:"400",
                 height:"200",
-                fixed:true,
+                fixed:false,
             });
         }
 
@@ -598,7 +598,7 @@
                 iframe:true,
                 width:"800",
                 height:"600",
-                fixed:true,
+                fixed:false,
                 overlayClose: false,
                 onClosed : function() {
                     location.reload();
@@ -611,7 +611,7 @@
                 iframe:true,
                 width:"900",
                 height:"600",
-                fixed:true,
+                fixed:false,
                 overlayClose: false,
                 onClosed : function() {
                     location.reload();
@@ -624,7 +624,7 @@
                 iframe:true,
                 width:"700",
                 height:"550",
-                fixed:true,
+                fixed:false,
                 onClosed : function() {
                     location.reload();
                 }
@@ -636,7 +636,7 @@
                 iframe:true,
                 width:"700",
                 height:"600",
-                fixed:true,
+                fixed:false,
             });
         }
 
@@ -645,7 +645,7 @@
                 iframe:true,
                 width:"700",
                 height:"600",
-                fixed:true,
+                fixed:false,
             });
         }
 

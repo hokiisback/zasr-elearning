@@ -11,20 +11,27 @@ Tugas - {{ parent() }}
     </div>
     <div class="module-body">
         {{ get_flashdata('tugas')|raw }}
-
-        <div class="bs-callout bs-callout-info">
+        <div class="row" style="margin-bottom: 10px;">
             {% if (is_siswa() == false) %}
-            <div class="btn-group pull-right" style="margin-top:-5px;">
+            <div class="btn-group-vertical pull-right btn-group-mobile">
+                {{ anchor('tugas/add/3', 'Tambah Tugas Ganda', {'class' : 'btn btn-primary'})|raw }}
+                {{ anchor('tugas/add/2', 'Tambah Tugas Essay', {'class' : 'btn btn-primary'})|raw }}
+                {{ anchor('tugas/add/1', 'Tambah Tugas Upload', {'class' : 'btn btn-primary'})|raw }}
+            </div>
+            <div class="btn-group pull-right btn-group-large">
                 {{ anchor('tugas/add/3', 'Tambah Tugas Ganda', {'class' : 'btn btn-primary'})|raw }}
                 {{ anchor('tugas/add/2', 'Tambah Tugas Essay', {'class' : 'btn btn-primary'})|raw }}
                 {{ anchor('tugas/add/1', 'Tambah Tugas Upload', {'class' : 'btn btn-primary'})|raw }}
             </div>
             {% endif %}
+        </div>
+        <div class="bs-callout bs-callout-info">
+
             <b><a class="as-link" data-toggle="collapse" data-target="#form-filter"><i class="icon-search" style="line-height: 0px;"></i> PARAMETER PENCARIAN</a></b>
 
             <div id="form-filter" class="collapse" style="margin-top: 5px;">
                 {{ form_open('tugas')|raw }}
-                    <table class="table table-condensed">
+                    <table class="table table-condensed table-res">
                         <tr>
                             <th  style="border-top: none;">Mapel</th>
                             <td  style="border-top: none;">
@@ -170,7 +177,34 @@ Tugas - {{ parent() }}
                         {% endif %}
                     </td>
                     <td>
-                        <div class="btn-group">
+                        <div class="btn-group btn-group-large">
+                        {% if is_siswa() == false %}
+                            {% if m.type_label == 'Ganda' or m.type_label == 'Essay' %}
+                                {{ anchor('tugas/manajemen_soal/' ~ m.id, '<i class="icon icon-tasks"></i> Soal', {'class' : 'btn btn-primary btn-small'})|raw }}
+                            {% endif %}
+                            {% if m.aktif == 0 %}
+                                {{ anchor('tugas/terbitkan/' ~ m.id ~ '/' ~ enurl_redirect(current_url()), '<i class="icon-ok"></i> Terbitkan', {'class' : 'btn btn-success btn-small'})|raw }}
+                            {% elseif m.aktif == 1 %}
+                                {{ anchor('tugas/tutup/' ~ m.id ~ '/' ~ enurl_redirect(current_url()), '<i class="icon-minus"></i> Tutup', {'class' : 'btn btn-danger btn-small'})|raw }}
+                            {% endif %}
+
+                            {{ anchor('tugas/edit/' ~ m.id ~ '/' ~ enurl_redirect(current_url()), '<i class="icon-edit"></i> Edit', {'class' : 'btn btn-default btn-small'})|raw }}
+                            {% if m.type_id == 3 %}
+                                {{ anchor('tugas/nilai/' ~ m.id, '<i class="icon-eye-open"></i> Lihat Nilai', {'class' : 'btn btn-info btn-small'})|raw }}
+                            {% else %}
+                                {{ anchor('tugas/koreksi/' ~ m.id, '<i class="icon-check"></i> Koreksi', {'class' : 'btn btn-info btn-small'})|raw }}
+                            {% endif %}
+                        {% elseif is_siswa() == true %}
+                            {% if m.aktif == 1 %}
+                                {% if sudah_ngerjakan(m.id, get_sess_data('user', 'id')) == false %}
+                                    {{ anchor('tugas/kerjakan/' ~ m.id, '<i class="icon-ok-sign"></i> Mulai Kerjakan', {'class' : 'btn btn-success btn-small', 'onclick' : 'return confirm(\'Anda yakin ingin memulai mengerjakan tugas ini?\')'})|raw }}
+                                {% endif %}
+                            {% else %}
+                                {{ anchor('tugas/nilai/' ~ m.id, '<i class="icon-flag"></i> Lihat Nilai', {'class' : 'btn btn-info btn-small iframe-lihat-nilai'})|raw }}
+                            {% endif %}
+                        {% endif %}
+                        </div>
+                        <div class="btn-group-vertical btn-group-mobile">
                         {% if is_siswa() == false %}
                             {% if m.type_label == 'Ganda' or m.type_label == 'Essay' %}
                                 {{ anchor('tugas/manajemen_soal/' ~ m.id, '<i class="icon icon-tasks"></i> Soal', {'class' : 'btn btn-primary btn-small'})|raw }}
